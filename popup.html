@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BOSS 新标签页沟通助手</title>
+  <style>
+    :root { font-family: -apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif; color:#20313b; }
+    body { width:304px; margin:0; background:#f6faf9; }
+    .head { background:#123f44; color:white; padding:18px 18px 16px; }
+    .app { font-weight:700; font-size:17px; letter-spacing:.1px; }
+    .sub { margin-top:7px; color:#d3eeee; font-size:12px; line-height:1.65; }
+    .main { padding:15px; }
+    .row { display:flex; align-items:center; justify-content:space-between; gap:12px; background:white; border:1px solid #e2eceb; padding:14px; border-radius:12px; }
+    .switchlabel { font-size:14px; font-weight:600; }
+    .muted { color:#688084; font-size:12px; line-height:1.7; margin-top:3px; }
+    .switch { appearance:none; margin:0; width:43px; height:25px; flex-shrink:0; background:#bdc9c9; border-radius:20px; cursor:pointer; position:relative; transition:background .15s; }
+    .switch::before { content:""; width:19px; height:19px; background:#fff; border-radius:50%; position:absolute; left:3px; top:3px; transition:transform .15s; }
+    .switch:checked { background:#04aaa9; }
+    .switch:checked::before { transform:translateX(18px); }
+    .tip { margin:14px 2px 6px; font-size:12px; line-height:1.8; color:#52676e; }
+    .status { padding:10px 12px; background:#eaf5f3; color:#3f6866; border-radius:9px; margin-top:9px; font-size:12px; line-height:1.5; }
+    .bottom { color:#8a9b9c; padding:0 17px 15px; font-size:11px; }
+  </style>
+</head>
+<body>
+  <div class="head"><div class="app">BOSS 新标签页沟通助手</div><div class="sub">原岗位列表不跳转 · 自动切换到新标签页，尝试进入对应聊天</div></div>
+  <div class="main">
+    <div class="row">
+      <div><div class="switchlabel">启用新标签页沟通</div><div class="muted" id="state">读取设置中…</div></div>
+      <input class="switch" id="toggle" type="checkbox" aria-label="启用新标签页沟通">
+    </div>
+    <div class="tip">打开 BOSS 岗位列表，点击「立即沟通」。插件将尝试打开对应岗位的新标签页，由 BOSS 自己进入 HR 聊天。<br><br>不会输入消息、发送招呼语或批量操作。</div>
+    <div class="status" id="pageStatus">正在检查当前页面…</div>
+  </div>
+  <div class="bottom">v0.1.1 · 仅在 www.zhipin.com 工作</div>
+  <script src="popup.js"></script>
+</body>
+</html>
